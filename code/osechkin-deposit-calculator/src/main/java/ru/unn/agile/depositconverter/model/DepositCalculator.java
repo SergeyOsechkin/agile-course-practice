@@ -8,7 +8,7 @@ public class DepositCalculator {
     static final double DEFAULT_INCOME = 0;
     static final double DEFAULT_INTEREST_RATE = 8;
     static final int MONTH_IN_YEAR = 12;
-    static final int PERCENT = 100
+    static final int PERCENT = 100;
 
     private double depositAmount;
     private int termPlacementInMonths;
