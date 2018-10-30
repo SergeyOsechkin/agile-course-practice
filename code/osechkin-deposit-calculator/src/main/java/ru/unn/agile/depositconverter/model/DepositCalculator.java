@@ -86,7 +86,7 @@ public class DepositCalculator {
     }
 
     private void calculationCapitalization(final double gain, final int term) {
-        if (FrequencyOfCapitalization.checkCharges(this.frequencyOfCapitalization, term)) {
+        if (FrequencyOfCapitalization.useCharges(this.frequencyOfCapitalization, term)) {
             this.income = gain;
         } else if (term == this.termPlacementInMonths) {
             this.income = gain;

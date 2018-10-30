@@ -260,4 +260,31 @@ public class DepositCalculatorTest {
         assertEquals(57702.512, depositCalculator.getIncome(), delta);
     }
 
+    @Test
+    public void canUseChargesWhenOneMonth() {
+        FrequencyOfCapitalization freqCapital = FrequencyOfCapitalization.onceMonth;
+
+        boolean charges = FrequencyOfCapitalization.useCharges(freqCapital, 1);
+
+        assertEquals(true, charges);
+    }
+
+    @Test
+    public void canUseChargesWhenTwoMonth() {
+        FrequencyOfCapitalization freqCapital = FrequencyOfCapitalization.onceTwoMonth;
+
+        boolean charges = FrequencyOfCapitalization.useCharges(freqCapital, 2);
+
+        assertEquals(true, charges);
+    }
+
+    @Test
+    public void cannotUseCharges() {
+        FrequencyOfCapitalization freqCapital = FrequencyOfCapitalization.quarterly;
+
+        boolean charges = FrequencyOfCapitalization.useCharges(freqCapital, 2);
+
+        assertEquals(false, charges);
+    }
+
 }

@@ -9,8 +9,8 @@ public enum FrequencyOfCapitalization {
     private static final int DEFAULT_QUARTERLY = 3;
     private static final int DEFAULT_HALF_YEAR = 6;
 
-    public static boolean checkCharges(final FrequencyOfCapitalization frequencyCapital,
-                                       final int term) {
+    public static boolean useCharges(final FrequencyOfCapitalization frequencyCapital,
+                                     final int term) {
         if (frequencyCapital == FrequencyOfCapitalization.onceTwoMonth) {
             return (term % DEFAULT_TWO_MONTH == 0);
         } else if (frequencyCapital == FrequencyOfCapitalization.quarterly) {
