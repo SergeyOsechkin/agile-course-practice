@@ -1,6 +1,6 @@
 package ru.unn.agile.depositconverter.model;
 
-public enum  FrequencyOfCapitalization {
+public enum FrequencyOfCapitalization {
     onceMonth,
     onceTwoMonth,
     quarterly,
