@@ -86,16 +86,7 @@ public class DepositCalculator {
     }
 
     private void calculationCapitalization(final double gain, final int term) {
-        if (this.frequencyOfCapitalization == FrequencyOfCapitalization.onceMonth) {
-            this.income = gain;
-        } else if (this.frequencyOfCapitalization == FrequencyOfCapitalization.onceTwoMonth
-                && term % 2 == 0) {
-            this.income = gain;
-        } else if (this.frequencyOfCapitalization == FrequencyOfCapitalization.quarterly
-                && term % 3 == 0) {
-            this.income = gain;
-        } else if (this.frequencyOfCapitalization == FrequencyOfCapitalization.halfYear
-                && term % 6 == 0) {
+        if (FrequencyOfCapitalization.checkCharges(this.frequencyOfCapitalization, term)) {
             this.income = gain;
         } else if (term == this.termPlacementInMonths) {
             this.income = gain;
@@ -114,7 +105,8 @@ public class DepositCalculator {
         return this.frequencyOfCapitalization;
     }
 
-    public void setFrequencyOfCapitalization(final FrequencyOfCapitalization frequencyOfCapitalization) {
+    public void setFrequencyOfCapitalization(
+            final FrequencyOfCapitalization frequencyOfCapitalization) {
         this.frequencyOfCapitalization = frequencyOfCapitalization;
     }
 
