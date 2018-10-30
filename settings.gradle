@@ -61,3 +61,7 @@ project(":code/polyakov-igor-sort").name = "polyakov-igor-sort-Model"
 // Rumyantsev Alexander, Vector3D
 include "code/rumyantsev-alexander-vector3d"
 project(":code/rumyantsev-alexander-vector3d").name = "rumyantsev-alexander-vector3d"
+
+// Osechkin Sergey, DepositCalculator
+include "code/osechkin-deposit-calculator"
+project(":code/osechkin-deposit-calculator").name = "osechkin-deposit-calculator"
