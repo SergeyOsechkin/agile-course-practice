@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateTime {
-    final static private SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy") {{
+    static final SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy") {{
         setLenient(false);
     }};
     private Date date;
