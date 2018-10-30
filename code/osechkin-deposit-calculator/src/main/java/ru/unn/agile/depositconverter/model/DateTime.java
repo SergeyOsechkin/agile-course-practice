@@ -13,7 +13,7 @@ public class DateTime {
         this.initFormatter();
     }
 
-    private void initFormatter(){
+    private void initFormatter() {
         this.formatter = new SimpleDateFormat("dd.MM.yyyy") {{
             setLenient(false);
         }};
