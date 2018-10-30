@@ -5,20 +5,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateTime {
-    private final SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy") {{
+    private final static SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy") {{
         setLenient(false);
     }};
-    private Date dateTime;
+    private Date date;
 
     public DateTime() {
-        this.dateTime = new Date();
+        this.date = new Date();
     }
 
     public DateTime(final String date) throws ParseException {
-        this.dateTime = formatter.parse(date);
+        this.date = formatter.parse(date);
     }
 
     public String convertToString() {
-        return formatter.format(this.dateTime);
+        return formatter.format(this.date);
     }
 }
