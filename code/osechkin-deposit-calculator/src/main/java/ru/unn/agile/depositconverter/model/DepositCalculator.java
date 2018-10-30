@@ -7,6 +7,8 @@ public class DepositCalculator {
     static final int DEFAULT_TERM_PLACMENT = 12;
     static final double DEFAULT_INCOME = 0;
     static final double DEFAULT_INTEREST_RATE = 8;
+    static final int MONTH_IN_YEAR = 12;
+    static final int PERCENT = 100
 
     private double depositAmount;
     private int termPlacementInMonths;
@@ -70,8 +72,7 @@ public class DepositCalculator {
     public double calculateRevenue() {
         double incomeInMonth = 0;
         double gain = 0;
-        int monthInYear = 12;
-        double valuePercentPerMonth = this.interestRate / (monthInYear * 100);
+        double valuePercentPerMonth = this.interestRate / (MONTH_IN_YEAR * PERCENT);
         for (int i = 1; i < this.termPlacementInMonths + 1; ++i) {
             if (this.accruedInterest == AccruedInterest.addToDeposit) {
                 incomeInMonth = valuePercentPerMonth * (this.depositAmount + this.income);
@@ -85,16 +86,20 @@ public class DepositCalculator {
     }
 
     private void calculationCapitalization(final double gain, final int term) {
-        if (this.frequencyOfCapitalization == FrequencyOfCapitalization.onceMonth)
+        if (this.frequencyOfCapitalization == FrequencyOfCapitalization.onceMonth) {
             this.income = gain;
-        else if (this.frequencyOfCapitalization == FrequencyOfCapitalization.onceTwoMonth && term % 2 == 0)
+        } else if (this.frequencyOfCapitalization == FrequencyOfCapitalization.onceTwoMonth
+                && term % 2 == 0) {
             this.income = gain;
-        else if (this.frequencyOfCapitalization == FrequencyOfCapitalization.quarterly && term % 3 == 0)
+        } else if (this.frequencyOfCapitalization == FrequencyOfCapitalization.quarterly
+                && term % 3 == 0) {
             this.income = gain;
-        else if (this.frequencyOfCapitalization == FrequencyOfCapitalization.halfYear && term % 6 == 0)
+        } else if (this.frequencyOfCapitalization == FrequencyOfCapitalization.halfYear
+                && term % 6 == 0) {
             this.income = gain;
-        else if (term == this.termPlacementInMonths)
+        } else if (term == this.termPlacementInMonths) {
             this.income = gain;
+        }
     }
 
     public AccruedInterest getAccruedInterest() {
