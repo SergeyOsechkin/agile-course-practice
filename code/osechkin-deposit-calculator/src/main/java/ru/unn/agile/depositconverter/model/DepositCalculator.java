@@ -3,6 +3,11 @@ package ru.unn.agile.depositconverter.model;
 import java.text.ParseException;
 
 public class DepositCalculator {
+    static final double DEFAULT_DEPOSIT = 700000;
+    static final int DEFAULT_TERM_PLACMENT = 12;
+    static final double DEFAULT_INCOME = 0;
+    static final double DEFAULT_INTEREST_RATE = 8;
+
     private double depositAmount;
     private int termPlacementInMonths;
     private double income;
@@ -12,11 +17,11 @@ public class DepositCalculator {
     private FrequencyOfCapitalization frequencyOfCapitalization;
 
     public DepositCalculator() {
-        this.depositAmount = 700000;
-        this.termPlacementInMonths = 12;
-        this.income = 0;
+        this.depositAmount = DEFAULT_DEPOSIT;
+        this.termPlacementInMonths = DEFAULT_TERM_PLACMENT;
+        this.income = DEFAULT_INCOME;
         this.startDate = new DateTime();
-        this.interestRate = 8;
+        this.interestRate = DEFAULT_INTEREST_RATE;
         this.accruedInterest = AccruedInterest.addToDeposit;
         this.frequencyOfCapitalization = FrequencyOfCapitalization.onceMonth;
     }
@@ -32,7 +37,7 @@ public class DepositCalculator {
         this.depositAmount = deposit;
     }
 
-    public void setTermPlacementInMonths(int term) throws NumberFormatException {
+    public void setTermPlacementInMonths(final int term) throws NumberFormatException {
         if (term < 1) {
             throw new NumberFormatException("Отрицательное значение срока размещения");
         }
@@ -43,7 +48,7 @@ public class DepositCalculator {
         return this.termPlacementInMonths;
     }
 
-    public void setStartDate(String date) throws ParseException {
+    public void setStartDate(final String date) throws ParseException {
         this.startDate = new DateTime(date);
     }
 
@@ -55,7 +60,7 @@ public class DepositCalculator {
         return this.interestRate;
     }
 
-    public void setInterestRate(double rate) {
+    public void setInterestRate(final double rate) {
         if (rate < 0) {
             throw new NumberFormatException("Отрицательное значение процента");
         }
@@ -79,7 +84,7 @@ public class DepositCalculator {
         return this.depositAmount + this.income;
     }
 
-    private void calculationCapitalization(double gain, int term) {
+    private void calculationCapitalization(final double gain, final int term) {
         if (this.frequencyOfCapitalization == FrequencyOfCapitalization.onceMonth)
             this.income = gain;
         else if (this.frequencyOfCapitalization == FrequencyOfCapitalization.onceTwoMonth && term % 2 == 0)
@@ -96,7 +101,7 @@ public class DepositCalculator {
         return this.accruedInterest;
     }
 
-    public void setAccruedInterest(AccruedInterest accrued) {
+    public void setAccruedInterest(final AccruedInterest accrued) {
         this.accruedInterest = accrued;
     }
 
@@ -104,7 +109,7 @@ public class DepositCalculator {
         return this.frequencyOfCapitalization;
     }
 
-    public void setFrequencyOfCapitalization(FrequencyOfCapitalization frequencyOfCapitalization) {
+    public void setFrequencyOfCapitalization(final FrequencyOfCapitalization frequencyOfCapitalization) {
         this.frequencyOfCapitalization = frequencyOfCapitalization;
     }
 
