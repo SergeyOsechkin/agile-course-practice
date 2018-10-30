@@ -172,7 +172,8 @@ public class DepositCalculatorTest {
         DepositCalculator depositCalculator = new DepositCalculator();
 
         // Assert
-        assertEquals(FrequencyOfCapitalization.onceMonth, depositCalculator.getFrequencyOfCapitalization());
+        assertEquals(FrequencyOfCapitalization.onceMonth,
+                depositCalculator.getFrequencyOfCapitalization());
     }
 
     @Test
