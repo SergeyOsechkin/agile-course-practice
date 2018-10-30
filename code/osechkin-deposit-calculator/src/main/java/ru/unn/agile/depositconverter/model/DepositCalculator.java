@@ -3,19 +3,29 @@ package ru.unn.agile.depositconverter.model;
 import java.text.ParseException;
 
 public class DepositCalculator {
-    private double depositAmount = 700000;
-    private int termPlacementInMonths = 12;
-    private double income = 0;
-    private DateTime startDate = new DateTime();
-    private double interestRate = 8;
-    private AccruedInterest accruedInterest = AccruedInterest.addToDeposit;
-    private FrequencyOfCapitalization frequencyOfCapitalization = FrequencyOfCapitalization.onceMonth;
+    private double depositAmount;
+    private int termPlacementInMonths;
+    private double income;
+    private DateTime startDate;
+    private double interestRate;
+    private AccruedInterest accruedInterest;
+    private FrequencyOfCapitalization frequencyOfCapitalization;
+
+    public DepositCalculator() {
+        this.depositAmount = 700000;
+        this.termPlacementInMonths = 12;
+        this.income = 0;
+        this.startDate = new DateTime();
+        this.interestRate = 8;
+        this.accruedInterest = AccruedInterest.addToDeposit;
+        this.frequencyOfCapitalization = FrequencyOfCapitalization.onceMonth;
+    }
 
     public double getDepositAmount() {
         return this.depositAmount;
     }
 
-    public void setDepositAmount(double deposit) {
+    public void setDepositAmount(final double deposit) {
         if (deposit < 0) {
             throw new NumberFormatException("Отрицательное значение суммы вклада");
         }

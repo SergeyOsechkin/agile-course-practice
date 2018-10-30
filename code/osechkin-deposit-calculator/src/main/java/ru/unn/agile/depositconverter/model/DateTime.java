@@ -14,7 +14,7 @@ public class DateTime {
         this.dateTime = new Date();
     }
 
-    public DateTime(String date) throws ParseException {
+    public DateTime(final String date) throws ParseException {
         this.dateTime = formatter.parse(date);
     }
 
