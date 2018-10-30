@@ -10,16 +10,21 @@ public class DateTime {
 
     public DateTime() {
         this.date = new Date();
+        this.initFormatter();
+    }
+
+    private void initFormatter(){
         this.formatter = new SimpleDateFormat("dd.MM.yyyy") {{
             setLenient(false);
         }};
     }
 
     public DateTime(final String date) throws ParseException {
-        this.date = formatter.parse(date);
+        this.initFormatter();
+        this.date = this.formatter.parse(date);
     }
 
     public String convertToString() {
-        return formatter.format(this.date);
+        return this.formatter.format(this.date);
     }
 }
