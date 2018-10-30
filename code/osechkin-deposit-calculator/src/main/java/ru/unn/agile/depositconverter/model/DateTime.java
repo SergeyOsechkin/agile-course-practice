@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateTime {
-    private final static SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy") {{
+    private final static SimpleDateFormat FORMATTER = new SimpleDateFormat("dd.MM.yyyy") {{
         setLenient(false);
     }};
     private Date date;
@@ -15,10 +15,10 @@ public class DateTime {
     }
 
     public DateTime(final String date) throws ParseException {
-        this.date = formatter.parse(date);
+        this.date = FORMATTER.parse(date);
     }
 
     public String convertToString() {
-        return formatter.format(this.date);
+        return FORMATTER.format(this.date);
     }
 }
